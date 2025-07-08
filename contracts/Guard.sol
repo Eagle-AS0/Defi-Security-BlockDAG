@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 interface IVault {
     function withdraw(address user, uint256 amount) external;
@@ -24,7 +24,7 @@ contract Guard is Ownable, ReentrancyGuard {
         _;
     }
 
-    constructor(address _vault, uint256 _withdrawThreshold) {
+    constructor(address _vault, uint256 _withdrawThreshold) Ownable(msg.sender) {
         require(_vault != address(0), "Guard: zero vault address");
         vault = IVault(_vault);
         withdrawThreshold = _withdrawThreshold;
@@ -46,9 +46,6 @@ contract Guard is Ownable, ReentrancyGuard {
         emit Unpaused();
     }
 
-    /**
-     * @dev User calls this function to withdraw tokens via Guard
-     */
     function guardedWithdraw(uint256 amount) external notPaused nonReentrant {
         bool allowed = amount <= withdrawThreshold;
         emit WithdrawalAttempt(msg.sender, amount, allowed);
