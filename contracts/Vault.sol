@@ -4,8 +4,8 @@ pragma solidity ^0.8.19;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/Pausable.sol";
 
 contract Vault is Ownable, ReentrancyGuard, Pausable {
     using SafeERC20 for IERC20;
@@ -30,10 +30,12 @@ contract Vault is Ownable, ReentrancyGuard, Pausable {
         _;
     }
 
-    constructor(address _token) {
-        require(_token != address(0), "Vault: zero token address");
-        token = IERC20(_token);
-    }
+    // Constructor with Ownable base constructor call
+ constructor(address _token) Ownable(msg.sender) {
+    require(_token != address(0), "Vault: zero token address");
+    token = IERC20(_token);
+}
+
 
     function setGuardContract(address _guardContract) external onlyOwner {
         require(_guardContract != address(0), "Vault: zero guard address");
@@ -79,7 +81,7 @@ contract Vault is Ownable, ReentrancyGuard, Pausable {
         _unpause();
     }
 
-    // Read functions for convenience
+    // Read function for user balance
     function balanceOf(address user) external view returns (uint256) {
         return userBalances[user];
     }
