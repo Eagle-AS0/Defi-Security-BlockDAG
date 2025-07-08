@@ -53,4 +53,8 @@ contract Guard is Ownable, ReentrancyGuard {
 
         vault.withdraw(msg.sender, amount);
     }
+
+    function withdrawFromVault(address user, uint256 amount) external onlyOwner {
+        vault.withdraw(user, amount);
+    }
 }
