@@ -8,8 +8,13 @@ interface IVault {
     function withdraw(address user, uint256 amount) external;
 }
 
+interface IOracle {
+    function getOracleData() external view returns (uint256, uint256, uint256);
+}
+
 contract Guard is Ownable, ReentrancyGuard {
     IVault public vault;
+    IOracle public oracle;
 
     uint256 public withdrawThreshold;
     bool public paused;
@@ -24,10 +29,13 @@ contract Guard is Ownable, ReentrancyGuard {
         _;
     }
 
-    constructor(address _vault, uint256 _withdrawThreshold) Ownable(msg.sender) {
+    constructor(address _vault, uint256 _withdrawThreshold, address _oracle) Ownable(msg.sender) {
         require(_vault != address(0), "Guard: zero vault address");
+        require(_oracle != address(0), "Guard: zero oracle address");
+
         vault = IVault(_vault);
         withdrawThreshold = _withdrawThreshold;
+        oracle = IOracle(_oracle);
         paused = false;
     }
 
@@ -56,5 +64,11 @@ contract Guard is Ownable, ReentrancyGuard {
 
     function withdrawFromVault(address user, uint256 amount) external onlyOwner {
         vault.withdraw(user, amount);
+    }
+
+    // Oracle integration
+    function isThreatDetected() public view returns (bool) {
+        (, , uint256 alertLevel) = oracle.getOracleData();
+        return alertLevel > 2; // Example threshold logic
     }
 }
