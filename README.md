@@ -179,7 +179,7 @@ Pull requests and contributions are welcome! Please fork the repo, create a feat
 
 ## 📜 License
 
-This project is licensed under the **LICENSE**. See the LICENSE file for more details.
+This project is licensed under the [**LICENSE**]( https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/LICENSE) See the LICENSE file for more details.
 
 ---
 
