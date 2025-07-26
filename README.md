@@ -164,7 +164,15 @@ npx hardhat run scripts/deploy.js --network localhost
 ![Frontend](https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/Screenshot%202025-07-22%20232747.png)
 
 
+<!-- This is a hidden comment that will not be displayed when rendered
+
 ![Backend](https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/photo_2025-07-22_23-29-41.jpg)
+
+![Backend](https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/photo_2025-07-22_23-29-42%20(2).jpg)    -->
+
+
+
+
 
 
 
