@@ -161,6 +161,7 @@ npx hardhat run scripts/deploy.js --network localhost
 
 ![Frontend](https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/Screenshot%202025-07-22%20232711.png)
 
+![Frontend](https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/Screenshot%202025-07-22%20232747.png)
 
 
 ![Backend](https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/photo_2025-07-22_23-29-41.jpg)
