@@ -150,7 +150,7 @@ npx hardhat run scripts/deploy.js --network localhost
 
 ## 📊 Demo Dashboard
 
-(https://youtu.be/your-demo-video-link)
+(https://github.com/Eagle-AS0/Defi-Security-BlockDAG/blob/main/Results/Screenshot%202025-07-22%20232507.png)
 
 
 
