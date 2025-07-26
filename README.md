@@ -179,7 +179,7 @@ Pull requests and contributions are welcome! Please fork the repo, create a feat
 
 ## 📜 License
 
-This project is licensed under the **MIT License**. See the LICENSE file for more details.
+This project is licensed under the **LICENSE**. See the LICENSE file for more details.
 
 ---
 
