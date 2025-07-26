@@ -184,7 +184,7 @@ npx hardhat run scripts/deploy.js --network localhost
 
 ### 🎥 Demo Video
 
-[Watch the full walkthrough on YouTube](https://youtu.be/your-demo-video-link)
+[Watch the full walkthrough on YouTube](https://youtu.be/sHbSB8aU5vs?si=EFBUqkWlYag_uVU2)
 
 ---
 
